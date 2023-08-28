@@ -1,20 +1,12 @@
 #!/usr/bin/python3
 
 def safe_print_list_integers(my_list=[], x=0):
-    count = 0
-    
-    try:
-        for item in my_list:
-            if isinstance(item, int):
-                print("{:d}".format(item), end=" ")
-                count += 1
-
-                if count >= x:
-                    break
-
-    except (ValueError, TypeError):
-        pass
-    
-    finally:
-        print()
-        return count
+    total = 0
+    for i in range(0, x):
+        try:
+            print("{:d}".format(my_list[i]), end="")
+            total += 1
+        except (TypeError, ValueError):
+            continue
+    print("")
+    return (total)
